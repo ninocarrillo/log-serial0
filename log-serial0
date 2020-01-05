@@ -1,0 +1,11 @@
+#!/bin/bash
+stty -F /dev/serial0 ispeed 115200;
+if [ ! -d ~/log ]; then
+        mkdir ~/log;
+fi
+while [ 1 ]; do
+        date_string=$(date +"%d%b%g-%H:%M:%S");
+        date_string="${date_string}.log";
+        touch ~/log/${date_string};
+        head -1000 /dev/serial0 > ~/log/${date_string};
+done
