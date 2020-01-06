@@ -1,5 +1,5 @@
 #!/bin/bash
-stty -F /dev/serial0 ispeed 115200;
+stty -F /dev/serial0 ispeed 115200 -icrnl ignbrk -brkint -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke;
 if [ ! -d ~/log ]; then
         mkdir ~/log;
 fi
